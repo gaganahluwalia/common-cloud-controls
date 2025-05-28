@@ -5,6 +5,11 @@ const Breadcrumb = () => {
   const location = useLocation();
   const pathParts = location.pathname.split("/").filter(Boolean);
 
+  // Don't render breadcrumb on the home page
+  if (location.pathname === "/") {
+    return null;
+  }
+
   return (
     <nav className="text-sm text-gray-500 mb-4 mx-32 py-5">
       <Link to="/" className="hover:underline text-blue-600">
