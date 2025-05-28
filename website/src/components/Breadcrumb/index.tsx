@@ -3,10 +3,11 @@ import Link from "@docusaurus/Link";
 
 const Breadcrumb = () => {
   const location = useLocation();
+  const path = location.pathname;
   const pathParts = location.pathname.split("/").filter(Boolean);
 
-  // Don't render breadcrumb on the home page
-  if (location.pathname === "/") {
+  // Don't render breadcrumb on the home page or 404 page
+  if (path === "/" || path.includes("404")) {
     return null;
   }
 
